@@ -8,5 +8,10 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chromedriver": "^110.0.0",
+    "geckodriver": "^3.2.0",
+    "selenium-webdriver": "^4.8.1"
+  }
 }
