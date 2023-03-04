@@ -1,12 +1,26 @@
-const {Builder, Browser, By, Key, until} = require('selenium-webdriver');
-
-(async function example() {
-  let driver = await new Builder().forBrowser(Browser.FIREFOX).build();
-  try {
-    await driver.get('https://www.google.com/ncr');
-    await driver.findElement(By.name('q')).sendKeys('webdriver', Key.RETURN);
-    await driver.wait(until.titleIs('webdriver - Google Search'), 1000);
-  } finally {
-    //await driver.quit();
-  }
-})();
+const {By,Key,Builder} = require("selenium-webdriver");
+require("chromedriver");
+ 
+async function example(){
+ 
+       var searchString = "Automation testing with Selenium";
+ 
+       //To wait for browser to build and launch properly
+       let driver = await new Builder().forBrowser("chrome").build();
+ 
+        //To fetch http://google.com from the browser with our code.
+        await driver.get("http://google.com");
+            
+        //To send a search query by passing the value in searchString.
+        await driver.findElement(By.name("q")).sendKeys(searchString,Key.RETURN);
+ 
+        //Verify the page title and print it
+        var title = await driver.getTitle();
+        console.log('Title is:',title);
+ 
+        //It is always a safe practice to quit the browser after execution
+        //await driver.quit();
+ 
+}
+ 
+example()
