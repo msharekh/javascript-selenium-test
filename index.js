@@ -14,15 +14,22 @@ async function example() {
   await driver.manage().window().maximize();
 
   //#3  get search element
-  var element = await driver.findElement(By.xpath("//*[@id='ctl00_SmallSearchInputBox1_csr_sbox']"))
-  element.clear();
-  
+  var elementsearch = await driver.findElement(By.xpath("//*[@id='ctl00_SmallSearchInputBox1_csr_sbox']"))
+  elementsearch.clear();
+
   //#4  send a search query by passing the value in searchString.
-  element.sendKeys(searchString, Key.RETURN);
-  
+  elementsearch.sendKeys(searchString, Key.RETURN);
+
   //Verify the page title and print it
   var title = await driver.getTitle();
   console.log('Title is:', title);
+
+  //#4  send a search query by passing the value in searchString.
+  var elementnextpage= await driver.findElement(By.id("PageLink_2"));
+  elementnextpage.click();
+
+  
+//*[@id="PageLink_2"]
 
   //It is always a safe practice to quit the browser after execution
   //await driver.quit();
