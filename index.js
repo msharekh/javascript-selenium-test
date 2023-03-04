@@ -25,8 +25,8 @@ async function example() {
   console.log('Title is:', title);
 
   //#4  send a search query by passing the value in searchString.
-  var elementnextpage= await driver.findElement(By.id("PageLink_2"));
-  elementnextpage.click();
+  //var elementnextpage= await driver.findElement(By.id("PageLink_2"));
+  //elementnextpage.click();
 
   
 //*[@id="PageLink_2"]
